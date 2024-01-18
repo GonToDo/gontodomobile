@@ -4,15 +4,16 @@ import 'package:gontodomobile/constants/app_colors.dart';
 import 'package:gontodomobile/constants/font_family.dart';
 
 TextStyle defaultText = const TextStyle(
-  fontFamily: FontFamily.Roboto,
+  fontFamily: FontFamily.roboto,
 );
 
 TextTheme textTheme = TextTheme(
   displayLarge:
-      defaultText.copyWith(fontSize: 24.sp, fontWeight: FontWeight.bold),
+      defaultText.copyWith(fontSize: 32.sp, fontWeight: FontWeight.bold),
   displayMedium:
-      defaultText.copyWith(fontSize: 18.sp, fontWeight: FontWeight.bold),
-  displaySmall: defaultText.copyWith(fontSize: 16.sp),
+      defaultText.copyWith(fontSize: 28.sp, fontWeight: FontWeight.bold),
+  displaySmall:
+      defaultText.copyWith(fontSize: 24.sp, fontWeight: FontWeight.bold),
   headlineLarge:
       defaultText.copyWith(fontSize: 22.sp, fontWeight: FontWeight.bold),
   headlineMedium:
@@ -36,8 +37,12 @@ ThemeData darkTheme = ThemeData(
   brightness: Brightness.dark,
   textTheme: textTheme,
   colorScheme: const ColorScheme.dark(
-    background: AppColors.mainBackground,
-    primary: AppColors.primary,
+    background: AppColors.black,
+    primary: AppColors.purple50,
+    onPrimary: AppColors.purple,
+    secondary: AppColors.white,
+    tertiary: AppColors.gray,
+    error: AppColors.red,
   ),
 );
 

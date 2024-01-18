@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 
 abstract class BasePageScreen extends StatefulWidget {
   const BasePageScreen({Key? key}) : super(key: key);
@@ -12,9 +13,11 @@ mixin BaseScreen<Page extends BasePageScreen> on BasePageScreenState<Page> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.background,
-        body: SafeArea(
-          child: body(),
-        ));
+        body: Observer(builder: (_) {
+          return SafeArea(
+            child: body(),
+          );
+        }));
   }
 
   Widget body();

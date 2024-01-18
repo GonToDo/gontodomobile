@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gontodomobile/constants/app_theme.dart';
-import 'package:gontodomobile/views/screens/intro.dart';
+import 'package:gontodomobile/views/screens/intro_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
           theme: lightTheme,
           darkTheme: darkTheme,
           themeMode: ThemeMode.system,
-          home: HomeScreen(),
+          home: const IntroScreen(),
         );
       },
     );
