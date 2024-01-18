@@ -1,13 +1,11 @@
 // ignore_for_file: prefer_interpolation_to_compose_strings
 
-import 'package:flutter/material.dart';
-
 const String assetsPart = "assets/";
 const String imagesPart = assetsPart + "images/";
 const String iconsPart = assetsPart + "icons/";
 
-class Images {
-  Images._();
+class AppImages {
+  AppImages._();
 
   static const intro = [
     imagesPart + "intro_1.png",
@@ -16,6 +14,8 @@ class Images {
   ];
 }
 
-class Icons {
-  Icons._();
+class AppIcons {
+  AppIcons._();
+
+  static const back = iconsPart + "arrow-left.svg";
 }

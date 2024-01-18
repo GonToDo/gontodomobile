@@ -76,6 +76,17 @@ mixin _$IntroController on IntroControllerBase, Store {
   }
 
   @override
+  void goToStartScreen(BuildContext context) {
+    final _$actionInfo = _$IntroControllerBaseActionController.startAction(
+        name: 'IntroControllerBase.goToStartScreen');
+    try {
+      return super.goToStartScreen(context);
+    } finally {
+      _$IntroControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void backImage() {
     final _$actionInfo = _$IntroControllerBaseActionController.startAction(
         name: 'IntroControllerBase.backImage');

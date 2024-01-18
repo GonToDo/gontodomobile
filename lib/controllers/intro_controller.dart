@@ -1,4 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:gontodomobile/constants/assets.dart';
+import 'package:gontodomobile/routes.dart';
 import 'package:mobx/mobx.dart';
 part 'intro_controller.g.dart';
 
@@ -21,16 +23,15 @@ abstract class IntroControllerBase with Store {
 
   @action
   void nextImage() {
-    if (imageNumber < Images.intro.length - 1) {
+    if (imageNumber < AppImages.intro.length - 1) {
       imageNumber++;
-      // return;
-    } else if (imageNumber >= Images.intro.length) {
-      goToLogin();
     }
   }
 
   @action
-  void goToLogin() {}
+  void goToStartScreen(BuildContext context) {
+    Routes.toScreen(context, Routes.start);
+  }
 
   @action
   void backImage() {
@@ -40,13 +41,13 @@ abstract class IntroControllerBase with Store {
   }
 
   @computed
-  bool get isComplete => imageNumber >= Images.intro.length - 1;
+  bool get isComplete => imageNumber >= AppImages.intro.length - 1;
 
   @computed
   String get buttonText => isComplete ? "GET STARTED" : "NEXT";
 
   @computed
-  String get getImage => Images.intro[imageNumber];
+  String get getImage => AppImages.intro[imageNumber];
 
   @computed
   String get getTitle => title[imageNumber];

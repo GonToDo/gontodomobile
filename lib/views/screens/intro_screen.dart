@@ -29,9 +29,11 @@ class _IntroScreenState extends BasePageScreenState<IntroScreen>
           Align(
             alignment: Alignment.topLeft,
             child: Padding(
-              padding: EdgeInsets.only(left: 12.sp, top: 12.sp),
-              child: TextButton(
-                onPressed: () {},
+              padding: EdgeInsets.only(left: 12.sp, top: 24.sp),
+              child: GestureDetector(
+                onTap: () {
+                  introController.goToStartScreen(context);
+                },
                 child: Text(
                   "SKIP",
                   style: Theme.of(context)
@@ -46,29 +48,32 @@ class _IntroScreenState extends BasePageScreenState<IntroScreen>
             height: 250.sp,
             introController.getImage,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              for (var i = 0; i < Images.intro.length; i++)
-                Padding(
-                  padding:
-                      EdgeInsets.symmetric(vertical: 4.sp, horizontal: 2.sp),
-                  child: Container(
-                    height: 4.sp,
-                    width: 20.sp,
-                    decoration: BoxDecoration(
-                      color: i == introController.imageNumber
-                          ? Theme.of(context).colorScheme.secondary
-                          : Theme.of(context).colorScheme.tertiary,
-                      borderRadius: BorderRadius.circular(4.sp),
+          Padding(
+            padding: EdgeInsets.only(top: 12.sp),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                for (var i = 0; i < AppImages.intro.length; i++)
+                  Padding(
+                    padding:
+                        EdgeInsets.symmetric(vertical: 4.sp, horizontal: 2.sp),
+                    child: Container(
+                      height: 4.sp,
+                      width: 20.sp,
+                      decoration: BoxDecoration(
+                        color: i == introController.imageNumber
+                            ? Theme.of(context).colorScheme.secondary
+                            : Theme.of(context).colorScheme.tertiary,
+                        borderRadius: BorderRadius.circular(4.sp),
+                      ),
                     ),
                   ),
-                ),
-            ],
+              ],
+            ),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 28.sp),
+            padding: EdgeInsets.symmetric(vertical: 18.sp),
             child: Text(
               introController.getTitle,
               style: Theme.of(context).textTheme.displayMedium,
@@ -93,8 +98,8 @@ class _IntroScreenState extends BasePageScreenState<IntroScreen>
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                TextButton(
-                  onPressed: () {
+                GestureDetector(
+                  onTap: () {
                     introController.backImage();
                   },
                   child: Text(
@@ -105,7 +110,9 @@ class _IntroScreenState extends BasePageScreenState<IntroScreen>
                 ),
                 PrimaryButton(
                     text: introController.buttonText,
-                    onPressed: () => introController.nextImage()),
+                    onPressed: () => introController.isComplete
+                        ? introController.goToStartScreen(context)
+                        : introController.nextImage()),
               ],
             ),
           )
