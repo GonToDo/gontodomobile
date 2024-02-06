@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gontodomobile/constants/assets.dart';
 import 'package:gontodomobile/core/base_screen.dart';
 import 'package:gontodomobile/routes.dart';
+import 'package:gontodomobile/views/widgets/primary_button.dart';
 
 class StartScreen extends BasePageScreen {
   const StartScreen({super.key});
@@ -18,8 +19,6 @@ class _StartScreenState extends BasePageScreenState<StartScreen>
   void initState() {
     super.initState();
   }
-
-  // var introController = IntroController();
 
   @override
   Widget body() {
@@ -65,27 +64,12 @@ class _StartScreenState extends BasePageScreenState<StartScreen>
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 32.sp),
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Theme.of(context).colorScheme.onPrimary,
-                disabledBackgroundColor: Theme.of(context).colorScheme.primary,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(4.sp),
-                ),
-              ),
+            child: PrimaryButton(
               onPressed: () {
                 Routes.toScreen(context, Routes.login);
               },
-              child: Container(
-                width: double.infinity,
-                height: 48.sp,
-                alignment: Alignment.center,
-                child: Text(
-                  "Login",
-                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                      color: Theme.of(context).colorScheme.secondary),
-                ),
-              ),
+              text: 'Login',
+              height: 46.sp,
             ),
           ),
           Padding(

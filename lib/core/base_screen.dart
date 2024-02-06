@@ -12,6 +12,7 @@ mixin BaseScreen<Page extends BasePageScreen> on BasePageScreenState<Page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Theme.of(context).colorScheme.background,
         body: Observer(builder: (_) {
           return SafeArea(

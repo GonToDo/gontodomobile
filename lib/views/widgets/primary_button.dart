@@ -4,11 +4,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
     super.key,
-    required this.onPressed,
     required this.text,
+    required this.onPressed,
+    this.height,
   });
   final VoidCallback onPressed;
   final String text;
+  final double? height;
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +23,16 @@ class PrimaryButton extends StatelessWidget {
         ),
       ),
       onPressed: onPressed,
-      child: Text(
-        text,
-        style: Theme.of(context)
-            .textTheme
-            .bodyMedium
-            ?.copyWith(color: Theme.of(context).colorScheme.secondary),
+      child: Container(
+        height: height,
+        alignment: Alignment.center,
+        child: Text(
+          text,
+          style: Theme.of(context)
+              .textTheme
+              .bodyLarge
+              ?.copyWith(color: Theme.of(context).colorScheme.secondary),
+        ),
       ),
     );
   }
